@@ -3,7 +3,7 @@
 import {useState, useEffect} from "react";
 import BriefingCard from "./BriefingCard";
 
-const BriefingCardList = ({data, handleTagClick}) => {
+const BriefingCardList = ({data}) => {
 	return (
 		<div className="mt-10 prompt_layout">{
 			data.map((post) => (

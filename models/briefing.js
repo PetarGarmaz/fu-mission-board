@@ -15,14 +15,14 @@ const BriefingSchema = new Schema ({
 	},
 	briefing: {
 		type: String,
-		minLength: 250,
-		required: [true, "Briefing is required and must have at least 250 characters!"]
+		required: [true, "Briefing is required!"]
 	},
 	briefing_image: {
 		type: String
 	},
 	status: {
-		type: String
+		type: String,
+		required: [true, "Status is required!"]
 	}
 });
 
