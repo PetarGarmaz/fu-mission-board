@@ -8,7 +8,7 @@ const handler = NextAuth({
 		DiscordProvider({
 			clientId: process.env.DISCORD_CLIENT_ID,
 			clientSecret: process.env.DISCORD_CLIENT_SECRET,
-			authorization: "https://discord.com/api/oauth2/authorize?client_id=1178425200417701940&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fdiscord&scope=identify+guilds+email",
+			authorization: process.env.DISCORD_AUTHORIZATION,
 			token: "https://discord.com/api/oauth2/token",
             userinfo: "https://discord.com/api/users/@me",
 		})
