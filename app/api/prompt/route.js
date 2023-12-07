@@ -7,7 +7,7 @@ export const GET = async (req) => {
 		await connectToDB();
 
 		const briefings = await Briefing.find().populate({path:"host"});
-		const res = Response(JSON.stringify(briefings), {status:200});
+		const res = new Response(JSON.stringify(briefings), {status:200});
 
 		// Add a unique identifier to the URL to force a cache-busting reload
         const url = new URL(req.url);
