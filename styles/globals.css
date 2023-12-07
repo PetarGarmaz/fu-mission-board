@@ -1,0 +1,429 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+:root {
+	--textDefault: #333333;
+	--textLight: #f1f1f1;
+	--textRed: #a70000;
+
+	--bgDark: #000000;
+	--bgLight: #f0f0f0;
+	--bgMain: #374452;
+	--bgSecond: #212f37;
+	--bgTert: #121b20;
+	--bgQuart: #4e5d66;
+
+	--transparent: rgba(0, 0, 0, 0);
+
+	font-family: "Purista";
+}
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+	background: var(--bgSecond);
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.black_btn {
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+
+.outline_btn {
+  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+}
+
+.head_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.green_gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.prompt_layout {
+	@apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+
+	gap: 2vh;
+	columns: 1;
+}
+
+/* Feed Component */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+/* Form Component */
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+/* Nav Component */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+}
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+
+/* PromptCard Component */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+
+/* Bizo Styles */
+
+.bizo-navbar {
+	background-color: var(--bgMain);
+	width: 100vw;
+	box-shadow: 0 4px 10px #0000004d;
+}
+
+.bizo-footer {
+	background-color: var(--bgMain);
+	width: 100vw;
+	height: 100px;
+}
+
+.bizo-navbar-image {
+	margin-left: 1vw;
+}
+
+.bizo-dropdown-text {
+	margin: 1vh 0.1vw;
+	font-size:calc(10px + 0.3vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-align: right;
+}
+/*
+.outline_btn {
+  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+}*/
+
+.bizo-navbar-signin {
+	@apply rounded-full text-white;
+	display: flex;
+	white-space: nowrap;
+	background-color: var(--textDefault);
+	align-items: center;
+	justify-content: center;
+	font-size:calc(10px + 0.3vw);
+	width: 100%;
+	height: auto;
+	padding: 5px 20px;
+}
+
+.bizo-navbar-text {
+	margin-left: 1vw;
+	letter-spacing: 0.1vw;
+	font-size:calc(20px + 1vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-shadow: 0 4px 4px #0000004d;
+}
+
+.bizo-profile-image {
+	margin-right: 1vw;
+}
+
+.bizo-line {
+	width: 100%;
+	color: var(--textLight);
+	box-shadow: 0 4px 10px #0000004d;
+}
+
+.bizo-feed-item-nav {
+	display: flex;
+	background-color: var(--bgMain);
+	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	width: 100%;
+	height: auto;
+	box-shadow: 0 4px 10px #0000004d;
+}
+
+.bizo-feed-item-bottom {
+	display: flex;
+	background-color: var(--bgMain);
+	
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	width: 100%;
+	height: auto;
+	box-shadow: 0 4px 10px #0000004d;
+}
+
+.bizo-feed-item {
+	display: inline-block;
+	background-color: var(--bgQuart);
+	border-left: 5px solid var(--textRed);
+	width: 100%;
+}
+
+.bizo-feed-item-profile-pic {
+	display: flex;
+	margin: 1vh 1vw;
+	width: auto;
+	cursor: pointer;
+}
+
+.bizo-feed-submit-wrapper {
+	width: 90%;
+	margin: auto;
+}
+
+.bizo-feed-submit {
+	@apply rounded-full text-white;
+	display: flex;
+	background-color: var(--textDefault);
+	font-size:calc(10px + 0.3vw);
+	width: auto;
+	height: auto;
+	padding: 6px 10px;
+}
+
+.bizo-feed-delete {
+	@apply bizo-feed-submit;
+	background-color: var(--textRed);
+}
+
+
+
+.bizo-form-bg {
+	background-color: var(--bgMain);
+	width: 100%;
+	border-radius: 5px;
+	box-shadow: 0 4px 10px #0000004d;
+	border-left: 5px solid var(--textRed);
+	padding-bottom: 2vh;
+	margin-bottom: 2vh;
+}
+
+.bizo-form {
+	display: flex;
+	border-radius: 5px;
+	background-color: var(--bgTert);
+	color: var(--textLight);
+	outline: var(--textLight) solid 2px;
+	margin: 1vh auto 3vh auto;
+	padding: 0.2% 1%;
+}
+
+.bizo-form-xsm {
+	@apply bizo-form;
+	width: 91%;
+	margin-left: 2%;
+	height: 3vh;
+	resize: none;
+}
+
+.bizo-form-sm {
+	@apply bizo-form;
+	width: 96%;
+	height: 3vh;
+	resize: none;
+}
+
+.bizo-form-lg {
+	@apply bizo-form;
+	width: 96%;
+	height: 6vh;
+	resize: vertical;
+}
+
+.react-datepicker-wrapper {
+	width: 100%;
+}
+
+.bizo-form-date {
+	@apply bizo-form;
+	width: 96%;
+	height: 3vh;
+	resize: none;
+}
+
+.bizo-form-xsm:hover, .bizo-form-sm:hover, .bizo-form-lg:hover{
+	outline: var(--textRed) solid 2px;
+	transition-duration: 300ms; 
+}
+
+.bizo-form-h2 {
+	margin-left: 1vw;
+	letter-spacing: 0.1vw;
+	font-size:calc(15px + 1vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-shadow: 0 4px 4px #0000004d;
+}
+
+.bizo-form-h3 {
+	font-size:calc(15px + 0.5vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-shadow: 0 4px 4px #0000004d;
+}
+
+.bizo-form-h4 {
+	margin: auto 2%;
+	font-size:calc(10px + 0.5vw);
+	font-family: "Purista";
+	color: var(--textLight);
+}
+
+.bizo-form-h4-r {
+	margin: auto 2% auto auto;
+	font-size:calc(10px + 0.5vw);
+	font-family: "Purista";
+	color: var(--textLight);
+}
+
+.bizo-form-p {
+	margin: 1vh 2%;
+	font-size:calc(10px + 0.3vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-align: justify;
+	text-justify: inter-word;
+	white-space: pre-line;
+	
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	display: -webkit-box;
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	transition-duration: 300ms;
+}
+
+.bizo-form-p-full {
+	margin: 1vh 2%;
+	font-size:calc(10px + 0.3vw);
+	font-family: "Purista";
+	color: var(--textLight);
+	text-align: justify;
+	text-justify: inter-word;
+	white-space: pre-line;
+	
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	transition-duration: 300ms;
+}
+
+/*
+.bizo-form-p:hover {
+	display: block;
+	overflow: visible;
+	transition-duration: 300ms;
+}*/
+
+.bizo-form-img {
+	width: 98%;
+	margin: 1vh auto 3vh auto;
+	padding: 0.2% 1%;
+}
+
+.bizo-form-submit {
+	display: flex;
+	@apply rounded-full text-white;
+	background-color: var(--textRed);
+	align-items: center;
+    justify-content: center;
+	font-size:calc(15px + 0.5vw);
+	width: 40%;
+	height: calc(30px + 1.5vw);
+	margin: auto;
+}
+
+.bizo-show-submit {
+	@apply rounded-full text-white;
+	display: flex;
+	background-color: var(--bgQuart);
+	font-size:calc(10px + 0.3vw);
+	width: auto;
+	height: auto;
+	padding: 6px 10px;
+}
