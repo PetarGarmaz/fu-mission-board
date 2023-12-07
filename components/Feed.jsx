@@ -47,7 +47,7 @@ const Feed = () => {
 	}
 
 	const fetchPosts = async () => {
-		const res = await fetch("/api/prompt");
+		const res = await fetch("/api/prompt",{next: { revalidate: 10, cache: "no-store" },});
 		const data = await res.json();
 		const currentDate = Date.parse(new Date());
 
