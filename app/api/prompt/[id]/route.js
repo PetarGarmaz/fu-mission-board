@@ -1,5 +1,6 @@
 import { connectToDB } from "@utils/database";
 import Briefing from "@models/briefing";
+import User from "@models/user";
 
 export const GET = async (req, {params}) => {
 	try {

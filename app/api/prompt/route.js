@@ -1,11 +1,12 @@
 import { connectToDB } from "@utils/database";
 import Briefing from "@models/briefing";
+import User from "@models/user";
 
 export const GET = async (req) => {
 	try {
 		await connectToDB();
 
-		const briefings = await Briefing.find().populate("host");
+		const briefings = await Briefing.find().populate({path:"host"});
 		const res = Response(JSON.stringify(briefings), {status:200});
 
 		// Add a unique identifier to the URL to force a cache-busting reload
