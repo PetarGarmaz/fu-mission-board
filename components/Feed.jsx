@@ -24,8 +24,9 @@ const Feed = () => {
 	const [searchedResults, setSearchedResults] = useState([]);
 
 	const filterPrompts = (searchtext) => {
+		const combinedPosts = posts.concat(previousPosts);
 		const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
-		return posts.filter(
+		return combinedPosts.filter(
 			(item) =>
 			regex.test(item.host.username) ||
 			regex.test(item.title) ||
@@ -37,13 +38,10 @@ const Feed = () => {
 		clearTimeout(searchTimeout);
 		setSearchText(e.target.value);
 
-		// debounce method
-		setSearchTimeout(
-		setTimeout(() => {
+		setSearchTimeout(setTimeout(() => {
 			const searchResult = filterPrompts(e.target.value);
 			setSearchedResults(searchResult);
-		}, 500)
-		);
+		}, 500));
 	}
 
 	const fetchPosts = async () => {
